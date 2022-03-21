@@ -1,0 +1,9 @@
+const productActions = {
+  PRODUCT_FILTER: 'PRODUCT_FILTER',
+  CREATE_REFINE_FILTER: 'CREATE_REFINE_FILTER',
+  GET_PRODUCTS: 'GET_PRODUCTS',
+  ERROR: 'ERROR',
+  PRODUCT_DETAIL: 'PRODUCT_DETAIL'
+}
+
+export default productActions;

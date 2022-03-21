@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './components/nav/NavBar'
+import ProductListing from './components/product-listing/ProductListing'
+import Home from './components/home/Home'
+import ProductType from './components/product-type/ProductType'
+import ProductDetail from './components/product-detail/ProductDetail'
+import ShoppingCart from './components/cart/ShoppingCart'
+
+import { Outlet, BrowserRouter, Routes, Route } from "react-router-dom";
+
+import tempData from './tempData.json'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Outlet />
+      <Routes>
+        <Route path ="/" element = {<Home />} />
+          <Route path = "/:product" element = {<ProductType />} />
+          <Route path = "/refine/:product/:sub" element = {<ProductType />} />
+          <Route path = "/detail/:detail" element = {<ProductDetail />} />
+          <Route path = "/cart" element = {<ShoppingCart />} />
+      </Routes>
+    </>
   );
 }
 
