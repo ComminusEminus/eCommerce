@@ -7,9 +7,13 @@ import ShoppingCart from './components/cart/ShoppingCart'
 
 import { Outlet, BrowserRouter, Routes, Route } from "react-router-dom";
 
-import tempData from './tempData.json'
+import ProductDrawer from './components/drawer/ProductDrawer'
+
+
 
 function App() {
+
+
   return (
     <>
       <NavBar />

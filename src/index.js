@@ -8,11 +8,11 @@ import ProductProvider from './providers/ProductProvider'
 
 ReactDOM.render(
   <CssBaseline>
-    <ProductProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ProductProvider>
         <App />
-      </BrowserRouter>
-    </ProductProvider>
+      </ProductProvider>
+    </BrowserRouter>
   </CssBaseline>,
   document.getElementById('root')
 );

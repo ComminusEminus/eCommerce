@@ -9,10 +9,12 @@ import {useReducer, useEffect} from 'react';
 const initialState = {
   allProducts: undefined,
   filteredProducts: undefined,
-  productPageFilters: ["Mens", "Womens", "Sale", "Cart"],
+  productPageFilters: ["Mens", "Womens", "Sale"],
   refineFilter: undefined,
-  productDetails: undefined
+  productDetails: undefined,
+  params: undefined
 };
+
 
 
 const ProductProvider = ({children}) => {
@@ -24,17 +26,41 @@ const ProductProvider = ({children}) => {
     }).catch(() => {
       dispatch({type: actions.ERROR})
     })
-  }, [])
+  }, [state.allProducts])
 
   const productDispatch = {
     productFilter: (filter) => {
-      dispatch({type: actions.PRODUCT_FILTER, payload: filter})
+      if(!state.allProducts){
+        apiClient.get('/products').then((res) => {
+          dispatch({type: actions.PRODUCT_FILTER, payload: filter, allProducts: res.data})
+        }).catch(() => {
+          dispatch({type: actions.ERROR})
+        })
+      }else{
+        dispatch({type: actions.PRODUCT_FILTER, payload: filter})
+      }
     },
     createRefinedFilters: (pageFilter) => {
-      dispatch({type: actions.CREATE_REFINE_FILTER, payload: pageFilter})
+      if(!state.allProducts){
+        apiClient.get('/products').then((res) => {
+          dispatch({type: actions.CREATE_REFINE_FILTER, payload: pageFilter})
+        }).catch(() => {
+          dispatch({type: actions.ERROR})
+        })
+      }else{
+        dispatch({type: actions.CREATE_REFINE_FILTER, payload: pageFilter})
+      }
     },
     getProductDetails: (productId) => {
-      dispatch({type: actions.PRODUCT_DETAIL, payload: productId})
+      if(!state.allProducts){
+        apiClient.get('/products').then((res) => {
+          dispatch({type: actions.PRODUCT_DETAIL, payload: productId, allProducts: res.data})
+        }).catch(() => {
+          dispatch({type: actions.ERROR})
+        })
+      }else{
+        dispatch({type: actions.PRODUCT_DETAIL, payload: productId})
+      }
     }
   }
 

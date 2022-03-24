@@ -7,7 +7,6 @@ const getURL = (imgPath, setState) => {
   const imageRef = ref(storage, imgPath + '.jpg');
   getDownloadURL(imageRef)
     .then((url) => {
-      console.log(url)
       setState(url);
 
     }).catch((error) => {

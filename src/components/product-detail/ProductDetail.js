@@ -4,6 +4,9 @@ import Typography from '@mui/material/Typography';
 import Product from '../product/Product';
 import ProductSpec from '../product-spec/ProductSpec';
 import ProductContext from '../../contexts/ProductContext'
+import addToCartSubmitFunction from '../forms/add-to-cart/addToCartSubmitFunction'
+
+import AddToCart from '../forms/add-to-cart/AddToCart'
 
 import { useParams } from "react-router-dom";
 import {useContext, useEffect, useState} from 'react'
@@ -22,9 +25,19 @@ const ProductDetail = ({productId}) => {
       {!productDetails && <Typography variant = 'h3'>...Loading</Typography>}
       {
         productDetails && <>
-          <Box sx = {{display: 'flex', flexDirection: {xs: 'row', md: 'column'}, justifyContent: {xs: 'center', md: 'center'}, alignContent: {xs: 'center', md: 'center'} }}>
+          <Box sx = {{ mt: 3, height: '60vh', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexDirection: {xs: 'row', md: 'row'}}}>
             <Product productTitle = {productDetails.title} productPrice = {productDetails.price} />
-            <ProductSpec product = {productDetails} />
+            <AddToCart
+              product = {productDetails}
+              buttonText = {'Add to Cart'}
+              initialValues = {{
+                qty: 0,
+                productName: productDetails.title,
+                option: productDetails.options[0],
+                productPrice: productDetails.price
+              }}
+              submitFunction = {{addToCartSubmitFunction}}
+            />
           </Box>
         </>
       }
