@@ -1,0 +1,8 @@
+const actions = {
+  GET_ORDER: 'GET_ORDER',
+  EDIT_PRODUCT: 'EDIT_PRODUCT',
+  UPDATE_ORDER: 'UPDATE_ORDER',
+  GET_CURRENT_CART:'GET_CURRENT_CART'
+}
+
+export default actions;
