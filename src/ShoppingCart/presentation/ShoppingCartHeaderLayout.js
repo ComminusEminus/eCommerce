@@ -4,6 +4,11 @@ import Grid from '@mui/material/Grid'
 
 const shoppingCartHeader = ['Item','Qty', 'Price', 'Total']
 
+/*
+  Maps the header from an array of headers which can be easily modified in the event
+  developer wants to add more. 
+*/
+
 const ShoppingCartHeaderLayout = () => {
   const gridItemSpacing = 3;
   return(

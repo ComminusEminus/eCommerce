@@ -10,8 +10,16 @@ import {useShoppingCartUI} from '../index'
 
 import PropTypes from "prop-types";
 
+/*
+  Shopping cart layout is split into three differnt components. Header for each column, the actual values for each
+  line item in the shopping and and action row with options for returning to shopping which is set in shoppingcartui
+  to send the user two pages back from when they arrived to shopping cart or check out and submit order, as well as a display
+  of the cart total dynamically calulated in the custom hook located at the top of the component. 
+*/
+
+
 const ShoppingCartLayout = (props) => {
-  const {total, open, handleOpen, handleClose, checkOutHandler, continueShoppingHandler} = useShoppingCartUI(props)
+  const {total, open, handleOpen, handleClose, checkOutHandler, continueShoppingHandler, removeItemHandler} = useShoppingCartUI(props)
   return(
     <>
       <Paper elevation = {5} sx = {{borderRadius: 8, my: 3, display:'flex', justifyContent: 'center', alignItems: 'stretch'}}>
@@ -26,6 +34,7 @@ const ShoppingCartLayout = (props) => {
                   modelClose = {handleClose}
                   modelOpen = {open}
                   buttonOpen = {handleOpen}
+                  removeItemHandler = {removeItemHandler}
                 />
               )
             })

@@ -1,6 +1,7 @@
 import DisplayOrder from './DisplayOrder'
 import MapCustomerInformation from './MapCustomerInformation'
 import MapOrderInformation from './MapOrderInformation'
+import OrderCompleteDialog from './OrderCompleteDialog'
 import { useNavigate } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -12,7 +13,24 @@ import Skeleton from '@mui/material/Skeleton';
 
 import PropTypes from "prop-types";
 
-const VerifyOrder = ({editHandler, details, submitOrderHandler, orderTotal}) =>{
+/*
+  The verify order object has two primary properties. Customer shipping and billing information that
+  was filled out prior to the verify order page and the order from the shopping cart.
+  mapping of order and customer information is decoupled into seperate files mapcustomerinformation and
+  map orderinformation.
+
+  There is a edit shipping and billing information when clicked will return the user back to the previous
+  pages form but with existing information already available.
+
+  The submit order button will send the order information to the db server where it will be parsed and added to
+  the database. The db server will return a status code of 201 which will alert the user with a pop up that
+  the order has been successfully added then clear data from localstorage and return the user the home screen
+  after clicking the acknowdlage button. If anythong other than 201 the pop up message will inform the user that
+  an error occured and try to submit order again. 
+*/
+
+
+const VerifyOrder = ({editHandler, details, submitOrderHandler, orderTotal, closeOrderCompleteDialogHandler, orderSubmissionMessage, openDialog}) =>{
 
   const navigate = useNavigate();
   const {customerInformation, order} = details;
@@ -57,6 +75,11 @@ const VerifyOrder = ({editHandler, details, submitOrderHandler, orderTotal}) =>{
             <Button variant = 'contained' onClick = {submitOrderHandler}>
               Submit Order
             </Button>
+            <OrderCompleteDialog
+              closeOrderCompleteDialogHandler = {closeOrderCompleteDialogHandler}
+              orderSubmissionMessage = {orderSubmissionMessage}
+              openDialog = {openDialog}
+            />
           </Box>
         </Box>
       </>

@@ -5,6 +5,13 @@ import Box from '@mui/material/Box'
 
 import PropTypes from "prop-types";
 
+/*
+  Cusomer information is mapped to page using a switch statement and object.entries. The reason is that I wanted both the keys and values of
+  each property for display and since there were alot of fields to display it would be faster and decrease errors from writing a bunch of
+  the same values over and over. To get the grid sizes for each field I used a switch statement which has an array of each key and if the key
+  matches then the gridLogic switch statement will return the appropriate grid size dynamically added in the grid item component. 
+*/
+
 const gridLogic = (entry) => {
   switch(true){
     case ['firstname', 'lastname', 'city', , 'state', 'cardfirstname', 'cardlastname', 'cardcity', 'cardstate'].includes(entry):

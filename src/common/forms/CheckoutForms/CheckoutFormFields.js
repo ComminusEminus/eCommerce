@@ -4,9 +4,19 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+import {useState, useEffect} from 'react'
 
 
 const CheckoutFormFields = (props) => {
+  const [checked, setChecked] = useState(false);
+
+
+  const billingAsShippingHandler = (event) => {
+    setChecked(event.target.checked);
+  };
   return (
     <>
       <Grid spacing = {2} sx = {{p:4}} container>
@@ -79,7 +89,7 @@ const CheckoutFormFields = (props) => {
             id = {'city'}
             name = {'city'}
             label= {'City'} //uppercase
-            value = {props.formik.values.city }
+            value = {props.formik.values.city}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.city && Boolean(props.formik.errors.city)}
             helperText = {props.formik.touched.city && props.formik.errors.city}
@@ -93,7 +103,7 @@ const CheckoutFormFields = (props) => {
             id = {'state'}
             name = {'state'}
             label= {'State'} //uppercase
-            value = {props.formik.values.state }
+            value = {props.formik.values.state}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.state && Boolean(props.formik.errors.state)}
             helperText = {props.formik.touched.state && props.formik.errors.state}
@@ -121,7 +131,7 @@ const CheckoutFormFields = (props) => {
             id = {'phone'}
             name = {'phone'}
             label= {'Phone'} //uppercase
-            value = {props.formik.values.phone }
+            value = {props.formik.values.phone}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.phone && Boolean(props.formik.errors.phone)}
             helperText = {props.formik.touched.phone && props.formik.errors.phone}
@@ -150,6 +160,14 @@ const CheckoutFormFields = (props) => {
             </Typography>
           </Box>
         </Grid>
+        <Grid xs ={12} item>
+          <Box sx = {{}}>
+             <FormControlLabel
+              label="Click if Shipping is Same as Billing"
+              control={<Checkbox checked={checked} onChange={billingAsShippingHandler} />}
+            />
+          </Box>
+        </Grid>
         <Grid xs ={6} item>
           <TextField
             key = {`${props.index}-cardfirstname-key`}
@@ -170,7 +188,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardlastname'}
             name = {'cardlastname'}
             label= {'cardLastName'} //uppercase
-            value = {props.formik.values.cardlastname }
+            value = {props.formik.values.cardlastname}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardlastname && Boolean(props.formik.errors.cardlastname)}
             helperText = {props.formik.touched.cardlastname && props.formik.errors.cardlastname}
@@ -184,9 +202,9 @@ const CheckoutFormFields = (props) => {
             id = {'cardaddress'}
             name = {'cardaddress'}
             label= {'Card Address'} //uppercase
-            value = {props.formik.values.cardaddress }
+            value = {props.formik.values.cardaddress}
             onChange = {props.formik.handleChange}
-            error = {props.formik.touched.cardaddress && Boolean(props.formik.errors.cardaddress)}
+            error = {props.formik.touched.streetaddress && Boolean(props.formik.errors.cardaddress)}
             helperText = {props.formik.touched.cardaddress && props.formik.errors.cardaddress}
             sx = {{width: '90%'}}
             disabled = {props.orderComplete}
@@ -198,7 +216,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardaptnumber'}
             name = {'cardaptnumber'}
             label= {'Card Apartment Number'} //uppercase
-            value = {props.formik.values.cardaptnumber }
+            value = {props.formik.values.cardaptnumber}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardaptnumber && Boolean(props.formik.errors.cardaptnumber)}
             helperText = {props.formik.touched.cardaptnumber && props.formik.errors.cardaptnumber}
@@ -212,7 +230,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardcity'}
             name = {'cardcity'}
             label= {'cardCity'} //uppercase
-            value = {props.formik.values.cardcity }
+            value = {props.formik.values.cardcity}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardcity && Boolean(props.formik.errors.cardcity)}
             helperText = {props.formik.touched.cardcity && props.formik.errors.cardcity}
@@ -226,7 +244,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardstate'}
             name = {'cardstate'}
             label= {'cardState'} //uppercase
-            value = {props.formik.values.cardstate }
+            value = {props.formik.values.cardstate}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardstate && Boolean(props.formik.errors.cardstate)}
             helperText = {props.formik.touched.cardstate && props.formik.errors.cardstate}
@@ -240,7 +258,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardzip'}
             name = {'cardzip'}
             label= {'cardZip'} //uppercase
-            value = {props.formik.values.cardzip }
+            value = {props.formik.values.cardzip}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardzip && Boolean(props.formik.errors.cardzip)}
             helperText = {props.formik.touched.cardzip && props.formik.errors.cardzip}
@@ -254,7 +272,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardnumber'}
             name = {'cardnumber'}
             label= {'Cardnumber'} //uppercase
-            value = {props.formik.values.cardnumber }
+            value = {props.formik.values.cardnumber}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardnumber && Boolean(props.formik.errors.cardnumber)}
             helperText = {props.formik.touched.cardnumber && props.formik.errors.cardnumber}
@@ -268,7 +286,7 @@ const CheckoutFormFields = (props) => {
             id = {'cardsecuritycode'}
             name = {'cardsecuritycode'}
             label= {'cardsecuritycode'} //uppercase
-            value = {props.formik.values.cardsecuritycode }
+            value = {props.formik.values.cardsecuritycode}
             onChange = {props.formik.handleChange}
             error = {props.formik.touched.cardsecuritycode && Boolean(props.formik.errors.cardsecuritycode)}
             helperText = {props.formik.touched.cardsecuritycode && props.formik.errors.cardsecuritycode}

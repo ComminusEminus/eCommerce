@@ -4,6 +4,7 @@ import {selectOrderSchema} from '../../common/index'
 const orderReducer = (state, action) => {
   switch(action.type){
     case actions.GET_FORM_MATERIALS:
+      console.log(action.payload)
       const formMaterials = new productToOrderForm(action.payload, 'Add to Cart', selectOrderSchema)
       return {...state, formMaterials: formMaterials}
     case actions.SUBMIT_FORM:

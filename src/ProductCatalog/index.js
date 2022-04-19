@@ -1,11 +1,5 @@
 export {default as actions} from './actions/actions';
 export {default as ProductContainer} from './container/ProductContainer'
-export {default as apiClient} from './fetch/apiClient'
-export {default as composeFirebaseURL} from './fetch/composeFirebaseURL'
-export {default as constants} from './fetch/constants'
-export {default as fetchProducts} from './fetch/fetchProducts'
-export {default as firebaseConfig} from './fetch/firebaseConfig'
-export {default as firebaseProto} from './fetch/firebaseProto'
 export {default as filterProducts} from './interactions/filterProducts'
 export {default as productEntity} from './interactions/productEntity'
 export {default as productList} from './interactions/productList'

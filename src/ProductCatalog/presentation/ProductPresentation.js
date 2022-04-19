@@ -5,13 +5,32 @@ import Link from '@mui/material/Link'
 import Divider from '@mui/material/Divider'
 import Skeleton from '@mui/material/Skeleton';
 
+import { Suspense, lazy } from 'react';
 import PropTypes from "prop-types";
 
-import {SelectOrderContainer} from '../../SelectOrder/index'
 import {LinkBehavior} from '../../Nav/index'
 import {useImageGrabUI} from '../index'
 
+const SelectOrderContainer = lazy(() => import('../../SelectOrder/container/SelectOrderContainer'))
+
+/*
+Each product fetched from db is passed to presentation to display data.
+An image grabbing custom hook is implemented here which will call firebase where
+all images are stored. Since each product is passed an object with all data
+it made sense to just implement here, pass query info to hook and retrive the url from firbase
+then place in image url source, rather than retrieve elsewhere and place directly into the
+product object properties back in the reducer. I can see both working fine but this method required
+less code I believe.
+
+Each product has a conditionally loaded SelectOrderContainer component. This holds the form information
+for adding the product to your shopping cart. It will only load while using the details route which can be viewed
+from './Routing/RoutePaths' component. For this reason I chose to lazy load the component which provided
+a great deal of optimization for load time in other routes. 
+*/
+
+
 const ProductPresentation = (props) => {
+  console.log("product presentation")
   const {product: {title, price, description}, view} = props;
   const {imageURL} = useImageGrabUI(title)
   return (
@@ -47,7 +66,9 @@ const ProductPresentation = (props) => {
             </Typography>
             <Divider />
           </Box>
-          <SelectOrderContainer product = {props.product} />
+          <Suspense fallback = {<h1>...Loading</h1>}>
+            <SelectOrderContainer product = {props.product} />
+          </Suspense>
         </Box>
       }
       </Box>

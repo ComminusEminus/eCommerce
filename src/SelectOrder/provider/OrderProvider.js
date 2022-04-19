@@ -1,8 +1,7 @@
 import {actions, orderReducer} from '../index'
 import OrderContext from './OrderContext'
 
-
-import {useReducer, useEffect, useCallback} from 'react';
+import {useReducer, useEffect} from 'react';
 
 const initialState = {
   order: undefined,
@@ -11,6 +10,7 @@ const initialState = {
 
 const OrderProvider = ({children}) => {
   const [state, dispatch] = useReducer(orderReducer, initialState)
+
   return(
     <OrderContext.Provider value = {{state, dispatch}}>
       {children}

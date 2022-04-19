@@ -6,6 +6,7 @@ import React from 'react'
 
 const FormWrapper = ({orderUI, ...props}) => {
   const {formik, ...rest} = orderUI(props)
+  console.log(formik)
   if(formik && rest){
     return (
       <>

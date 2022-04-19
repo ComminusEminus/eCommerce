@@ -1,4 +1,5 @@
-import {ProductContext, actions, apiClient, fetchProducts} from '../index';
+import {ProductContext, actions} from '../index';
+import {apiClient} from '../../common/index'
 
 import { useParams } from "react-router-dom";
 import {useContext, useEffect, useState} from 'react'

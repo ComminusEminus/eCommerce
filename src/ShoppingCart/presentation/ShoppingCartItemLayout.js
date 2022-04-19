@@ -4,13 +4,22 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider';
 import Model from '@mui/material/Modal';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import IconButton from '@mui/material/IconButton';
 
 import PropTypes from "prop-types";
-
-
+import { Suspense, lazy } from 'react';
+import {SelectOrderFields} from '../../common/index'
 import {useEditOrderUI} from '../index'
-import {SelectOrderFields, FormWrapper} from '../../common/index'
 
+const FormWrapper = lazy(() => import('../../common/forms/common/FormWrapper'))
+
+/*
+  The line item of product information is mapped here from the layout page. Including
+  an edit button incase user wants to modify the qty or size of product aswell as
+  an option to completly remove the item from the shopping cart. Since not every user will
+  need to modify the line item the form for doing so has been lazy loaded.
+*/
 
 
 const producBoxStyle = {
@@ -30,7 +39,7 @@ const style = {
 
 
 const ShoppingCartItemLayout = (props) => {
-  const {orderItem: {title, option, qty, price, lineTotal, itemOrderId}, modelOpen, modelClose, buttonOpen} = props;
+  const {orderItem: {title, option, qty, price, lineTotal, itemOrderId}, modelOpen, modelClose, buttonOpen, removeItemHandler} = props;
   const textVariant = 'h4';
   const itemTextStyle = {
     fontWeight: 600
@@ -70,6 +79,9 @@ const ShoppingCartItemLayout = (props) => {
           <Button variant = 'contained' value = {itemOrderId} onClick = {buttonOpen}>
             Edit
           </Button>
+          <IconButton aria-label="delete" value = {itemOrderId} onClick = {removeItemHandler}>
+            <DeleteForeverIcon />
+          </IconButton>
         </Box>
       </Grid>
       <Grid xs = {12} sx = {{px:5}} item>
@@ -87,9 +99,11 @@ const ShoppingCartItemLayout = (props) => {
             <Typography variant = {'h5'} sx = {{mb: 3, fontWeight: 600}}>
               {title}
             </Typography>
-            <FormWrapper orderUI = {useEditOrderUI} closeModel = {modelClose}>
-              <SelectOrderFields />
-            </FormWrapper>
+            <Suspense fallback = {<h1>...Loading</h1>}>
+              <FormWrapper orderUI = {useEditOrderUI} closeModel = {modelClose}>
+                <SelectOrderFields />
+              </FormWrapper>
+            </Suspense>
           </Box>
         </Box>
       </Model>

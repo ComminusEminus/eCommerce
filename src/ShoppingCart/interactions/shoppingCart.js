@@ -7,7 +7,6 @@ function shoppingCart(){
 }
 
 shoppingCart.prototype.getCurrentCart = function(){
-  //get cart from storage and set this.cart to it
   const currentCart = localStorage.getItem('cart');
   if(currentCart){
     this.cart = JSON.parse(currentCart)
@@ -15,11 +14,9 @@ shoppingCart.prototype.getCurrentCart = function(){
   return this.cart;
 }
 
-shoppingCart.prototype.addItemToCart = function(cartItem){
+shoppingCart.prototype.addItemToCart = function(values, product){
   this.getCurrentCart()
-  console.log(cartItem)
-  const newCartItem = new orderToShoppingCartItem(cartItem)
-  console.log(newCartItem)
+  const newCartItem = new orderToShoppingCartItem(values, product)
   this.cart.push(newCartItem)
   this.setCurrentCart()
   return this.cart
@@ -31,7 +28,6 @@ shoppingCart.prototype.setCurrentCart = function(){
 
 
 shoppingCart.prototype.returnCart = function(){
-  //get this.current in current state and return it
   const currentShoppingCart = this.getCurrentCart()
   return this.cart
 }
@@ -45,19 +41,22 @@ shoppingCart.prototype.findCartItem = function(itemOrderId){
   return formMaterials
 }
 
-shoppingCart.prototype.updateCartItem = function(order){
-  this.getCurrentCart()
-  const replaceAtIndex = this.cart.findIndex((element) => element.itemOrderId == order[3]);
-  const updatedProduct = new orderToShoppingCartItem([order[0], order[1]]);
+
+shoppingCart.prototype.updateCartItem = function(values, product, id){
+  const currentCart = this.getCurrentCart()
+  const replaceAtIndex = currentCart.findIndex((element) => element.itemOrderId == id);
+  const updatedProduct = new orderToShoppingCartItem(values, product);
   console.log(updatedProduct)
-  this.cart.splice(replaceAtIndex, 1, updatedProduct)
+  currentCart.splice(replaceAtIndex, 1, updatedProduct)
   this.setCurrentCart()
   return this.cart;
 }
 
-shoppingCart.prototype.shoppingCartToPlaceOrderForm = function(){
-  //get current shopping cart from local storage
-  //bundle into object with : validationSchema initialValues buttonText
+shoppingCart.prototype.removeCartItem = function(id){
+  const currentCart = this.getCurrentCart()
+  const removeAtIndex = currentCart.findIndex((element) => element.itemOrderId == id);
+  currentCart.splice(removeAtIndex, 1)
+  this.setCurrentCart()
+  return this.cart
 }
-
 export default shoppingCart;

@@ -7,6 +7,11 @@ import {FormWrapper, SelectOrderFields} from '../../common/index'
 
 import {useSelectOrderUI} from '../index'
 
+/*
+  Displays the Form Component and the fields requried for adding
+  product to your shopping cart.
+*/
+
 const SelectOrderLayout = () => {
   return (
     <Box sx = {{height: '50%', width: '100%', display:'flex', flexDirection:'column',justifyContent: 'center'}}>

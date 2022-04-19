@@ -8,6 +8,13 @@ import Button from '@mui/material/Button';
 
 import {FormWrapper, CheckoutFormFields} from '../../../common/index'
 import {useCheckoutUI} from '../../index'
+
+/*
+  The checkout presentation displays and styles the layout of the form
+  for billing and shipping. 
+*/
+
+
 const CheckoutPresentation = () => {
   return (
     <>

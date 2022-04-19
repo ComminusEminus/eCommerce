@@ -6,9 +6,13 @@ import Box from '@mui/material/Box'
 
 import {useContext} from 'react'
 
+/*
+  Entry point for displaying shopping cart. Requies a loading and empty display in addition to the shopping cart using if else conditional.
+*/
+
+
 const ShoppingCartContainer = () => {
   const {state: {orders}, dispatch} = useContext(ShoppingCartContext);
-
   const typeVar = 'h4'
   if(orders){
       return(

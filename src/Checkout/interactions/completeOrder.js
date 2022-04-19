@@ -5,6 +5,11 @@ function completeOrder(){
   this.customerInformation = {}
 }
 
+completeOrder.prototype.clearCart = function(){
+  localStorage.removeItem('cart');
+}
+
+
 completeOrder.prototype.buildOrder = function(customerInfo){
   const cart = new shoppingCart();
   const currentCart = cart.getCurrentCart()

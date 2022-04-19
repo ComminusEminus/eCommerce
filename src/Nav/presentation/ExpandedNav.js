@@ -4,7 +4,13 @@ import Link from '@mui/material/Link'
 
 import LinkBehavior from './LinkBehavior'
 import CartButton from './CartButton'
-//Logo will later be imported but for now just use a filler
+
+
+/*
+  Link behavior is a props forwarding component that allows for the use of both Material UI's
+  Link button and React Routers Link component. Link Behavior is located in the same directory and
+  this nav component. 
+*/
 
 
 

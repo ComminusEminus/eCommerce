@@ -3,10 +3,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 
 import {CartButton, ExpandedNav} from '../index'
-//create Collapsed nav after hooking everything up
-//use array of links for now change when I create dynamic page filter and will import context from products Page filter
-  //conider making products globally available?
-//Nav UI only needed for Collapsed Nav will make later when I make Collapsed Nav
+
+/*
+  Nav container for responsive nav bar. Using Material UI's AppBar the component
+  switches between two expanded nav bar and collapsede navbar. 
+*/
+
 const tempNavLinks = ['Mens', 'Womens', 'Sale'];
 
 

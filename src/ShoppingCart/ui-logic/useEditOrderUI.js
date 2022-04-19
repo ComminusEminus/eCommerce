@@ -16,7 +16,7 @@ const useEditOrderUI = (props) => {
       console.log(values, action)
       close()
       action.setSubmitting(false)
-      dispatch({type: actions.UPDATE_ORDER, payload: [values, formMaterials.productData, formMaterials.itemOrderId] })
+      dispatch({type: actions.UPDATE_ORDER, payload: {values: values, product: formMaterials.productData, id: formMaterials.itemOrderId} })
     },
   })
 

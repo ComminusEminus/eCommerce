@@ -1,14 +1,19 @@
-import ProductPresentation from '../presentation/ProductPresentation'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography'
 
-import ProductSkeleton from './ProductSkeleton'
-
 import PropTypes from "prop-types";
 
-const ProductLayout = ({products, view}) => {
+import ProductPresentation from '../presentation/ProductPresentation'
+import ProductSkeleton from './ProductSkeleton'
 
+/*
+  Maps the layout of each product and waits for the fetch to complete with loading
+  screen
+*/
+
+
+const ProductLayout = ({products, view}) => {
   if(products){
     return (
       <>

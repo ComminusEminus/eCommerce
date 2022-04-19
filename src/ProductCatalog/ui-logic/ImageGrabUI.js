@@ -1,5 +1,5 @@
-import composeURL from '../fetch/composeFirebaseURL';
-import firebaseConfig from '../fetch/firebaseConfig';
+
+import {composeFirebaseURL, firebaseConfig} from '../../common/index'
 
 import {useEffect, useState, useCallback} from 'react'
 
@@ -12,7 +12,7 @@ const useImageGrabUI = (props) => {
 
   useEffect(() => {
     const imgURL = async () => {
-      const url = await composeURL(firebaseConfig, props);
+      const url = await composeFirebaseURL(firebaseConfig, props);
       setImageCallback(url)
     }
     imgURL()
