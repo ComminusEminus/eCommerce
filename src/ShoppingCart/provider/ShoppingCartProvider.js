@@ -1,24 +1,20 @@
-import {shoppingCart, ShoppingCartContext, actions, shoppingCartReducer} from '../index';
-
-import {useReducer, useEffect, useCallback} from 'react';
-
+import ShoppingCartContext from './ShoppingCartContext'
+import actions from '../Reducer/actions'
+import shoppingCartReducer from '../Reducer/shoppingCartReducer'
+import {useReducer, useEffect} from 'react'
 const initialState = {
-  orders: undefined,
-  formMaterials: undefined
-};
+  cart: undefined
+}
 
 const ShoppingCartProvider = ({children}) => {
   const [state, dispatch] = useReducer(shoppingCartReducer, initialState)
-
   useEffect(() => {
-    dispatch({type: actions.GET_CURRENT_CART})
-  }, [])
-
+    dispatch({type:actions.GET_CART})
+  },[])
   return(
-    <ShoppingCartContext.Provider value = {{state, dispatch}}>
+    <ShoppingCartContext.Provider value = {{state, dispatch, actions}}>
       {children}
     </ShoppingCartContext.Provider>
   )
 }
-
-export default ShoppingCartProvider;
+export default ShoppingCartProvider

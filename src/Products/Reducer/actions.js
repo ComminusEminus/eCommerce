@@ -1,0 +1,6 @@
+const actions = {
+  CREATE_PRODUCT_LIST: 'CREATE_PRODUCT_LIST',
+  FIND_PRODUCT: 'FIND_PRODUCT',
+  FILTER_PRODUCTS: 'FILTER_PRODUCTS'
+}
+export default actions

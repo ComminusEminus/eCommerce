@@ -1,9 +1,19 @@
-import RoutePaths from './Routing/container/RoutePaths'
+import Router from './Pages/Router'
 
 function App() {
   return (
-    <RoutePaths />
+    <>
+      <Router />
+    </>
   )
 }
 
 export default App;
+
+
+
+/*
+import RoutePaths from './Routing/container/RoutePaths'
+<RoutePaths />
+
+*/
