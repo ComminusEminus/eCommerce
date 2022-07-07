@@ -10,6 +10,7 @@ const useShoppingCartItemHandler = () => {
 
 
   const deleteHandler = (event) => {
+
     dispatch({type: actions.DELETE_ITEM, payload: event.target.value})
   }
   const handleClose = () => setOpen(false);

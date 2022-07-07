@@ -9,12 +9,12 @@ const shoppingCartReducer = (state, action) => {
     case actions.ADD_TO_CART:
       ShoppingCart.addToCart(action.payload)
       return {cart: ShoppingCart}
-      return{state}
     case actions.DELETE_ITEM:
       ShoppingCart.removeFromCart(action.payload)
       return{cart: ShoppingCart}
-      return{state}
-
+    case actions.CLEAR_CART:
+      ShoppingCart.clearCart()
+      return{cart:ShoppingCart}
     default:
       return state
   }

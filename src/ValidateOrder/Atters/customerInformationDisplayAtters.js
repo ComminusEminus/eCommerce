@@ -35,7 +35,20 @@ const customerInformationDisplayAtters = {
     variant: 'h6',
     component: 'h6',
   },
-
+  editInfoBox:{
+    sx:{
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      width:'100%',
+      height: 'auto'
+    }
+  },
+  editInfoButton:{
+    type: 'submit',
+    variant: 'contained'
+  }
 }
 
 export default customerInformationDisplayAtters

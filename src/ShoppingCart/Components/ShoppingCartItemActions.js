@@ -1,3 +1,4 @@
+
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal';
@@ -16,7 +17,7 @@ const ShoppingCartItemActions = ({cartData}) => {
     <>
       {
         cartData && <Box {...shoppingCartItemAtters.actionItemsBox}>
-          <Button onClick = {deleteHandler} {...shoppingCartItemAtters.deleteButtonProps}>
+          <Button value = {cartData.productOrderId} onClick = {deleteHandler} {...shoppingCartItemAtters.deleteButtonProps}>
             Delete
           </Button>
           <Button onClick = {handleOpen} {...shoppingCartItemAtters.editButtonProps}>
@@ -34,6 +35,9 @@ const ShoppingCartItemActions = ({cartData}) => {
                 {cartData.productTitle}
               </Typography>
               <ProductOrder product = {cartData} />
+              <Button onClick = {handleClose} {...shoppingCartItemAtters.cancelEditButton}>
+                Cancel
+              </Button>
             </Box>
           </Modal>
         </Box>

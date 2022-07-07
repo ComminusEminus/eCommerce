@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'
 
 const CustomerInfo = ({customerFormInstance}) => {
 
-  const {formik} = useCustomerInfoFormHook(customerFormInstance)
+  const {formik, continueShoppingHandler} = useCustomerInfoFormHook(customerFormInstance)
 
   if(formik){
     return(
@@ -16,6 +16,9 @@ const CustomerInfo = ({customerFormInstance}) => {
         <FormWrapper handleSubmit = {formik.handleSubmit}>
           <CustomerFormFields formik = {formik} />
           <Box {...customerInfoAtters.boxProps}>
+            <Button onClick = {continueShoppingHandler} {...customerInfoAtters.buttonProps}>
+              Cancel
+            </Button>
             <Button {...customerInfoAtters.buttonProps}>
               Submit
             </Button>

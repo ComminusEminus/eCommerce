@@ -13,6 +13,11 @@ List.prototype.remove = function(id, type){
   return this.list
 }
 
+List.prototype.clearList = function(key, value){
+  this.list = []
+  return this.list
+}
+
 List.prototype.getItem = function(key, value){
   let element = this.list.find((elem) => elem[key] === value)
   return element

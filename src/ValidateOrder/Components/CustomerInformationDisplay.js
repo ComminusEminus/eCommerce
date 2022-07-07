@@ -1,9 +1,17 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+
 import {Fragment} from 'react'
+
 import customerInformationDisplayAtters from '../Atters/customerInformationDisplayAtters'
+import useEditOrderHook from '../Hooks/EditOrderHook'
+
+
 
 const CustomerInformationDisplay = ({customerFormValues}) => {
+  const {editInfoHandler} = useEditOrderHook()
+
   if(customerFormValues){
     return(
       <>
@@ -22,6 +30,11 @@ const CustomerInformationDisplay = ({customerFormValues}) => {
               )
             })
           }
+        </Box>
+        <Box {...customerInformationDisplayAtters.editInfoBox}>
+          <Button onClick = {editInfoHandler} {...customerInformationDisplayAtters.editInfoButton}>
+            Edit
+          </Button>
         </Box>
       </>
     )

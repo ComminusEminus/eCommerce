@@ -17,7 +17,7 @@ const validateOrderAtters = {
   buttonBox:{
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
     height: 'auto',

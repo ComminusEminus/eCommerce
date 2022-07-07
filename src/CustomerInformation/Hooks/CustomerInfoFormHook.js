@@ -3,7 +3,9 @@ import CustomerInfoContext from '../Provider/CustomerInfoContext'
 import { useFormik } from 'formik';
 import { useNavigate } from "react-router-dom";
 
+
 const useCustomerInfoFormHook = (props) => {
+
   const {dispatch, actions} = useContext(CustomerInfoContext);
   const navigate = useNavigate();
 
@@ -16,8 +18,10 @@ const useCustomerInfoFormHook = (props) => {
       navigate('/validate')
     },
   })
-
-  return {formik}
+  const continueShoppingHandler = () => {
+    navigate('/cart')
+  }
+  return {formik, continueShoppingHandler}
 }
 
 export default useCustomerInfoFormHook;

@@ -68,6 +68,12 @@ const shoppingCartItemAtters = {
 
     },
   },
+  cancelEditButton:{
+    variant: 'contained',
+    sx: {
+      my: 2,
+    },
+  },
   deleteButtonProps:{
     variant: "outlined",
     color:"error",

@@ -22,9 +22,8 @@ ShoppingCart.prototype.updateProduct = function(productOrder){
   this.list = newList
 }
 
-ShoppingCart.prototype.removeFromCart = function(product){
-  this.hydrateCart()
-  this.remove(product.productOrderId ,'productOrderId')
+ShoppingCart.prototype.removeFromCart = function(id){
+  this.remove(id,'productOrderId')
   this.updateStorage()
   return this.list
 }
@@ -68,7 +67,11 @@ ShoppingCart.prototype.calcTotal = function(){
   let orderTotal = totals.reduce((prev, curr) =>  prev + curr)
   return orderTotal
 }
-
+ShoppingCart.prototype.clearCart = function(){
+  this.clearList()
+  this.updateStorage()
+  return this.list
+}
 
 
 

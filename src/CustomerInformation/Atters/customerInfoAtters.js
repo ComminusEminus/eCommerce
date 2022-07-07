@@ -6,7 +6,7 @@ const customerInfoAtters = {
   boxProps:{
     sx:{
       display: 'flex',
-      justifyContent: 'flex-end',
+      justifyContent: 'space-between',
       alignItems: 'flex-start',
       width: '100%',
       p:3

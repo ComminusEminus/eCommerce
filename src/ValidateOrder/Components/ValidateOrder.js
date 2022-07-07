@@ -2,6 +2,7 @@ import CustomerInformationDisplayContainer from './CustomerInformationDisplayCon
 import ShoppingCartDisplayContainer from './ShoppingCartDisplayContainer'
 import validateOrderAtters from '../Atters/validateOrderAtters'
 import useValidateOrderHook from '../Hooks/ValidateOrderHook'
+import OrderCompleteDialog from './OrderCompleteDialog'
 
 import {memo} from 'react'
 
@@ -9,7 +10,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
 const ValidateOrder = () => {
-  const {submitOrder, customerFormValues, shoppingCartValues} = useValidateOrderHook()
+  const {submitOrder, customerFormValues, shoppingCartValues, continueShoppingHandler, closeOrderCompleteDialogHandler, orderSubmissionMessage, openDialog} = useValidateOrderHook()
   if( customerFormValues){
     return(
       <>
@@ -17,9 +18,17 @@ const ValidateOrder = () => {
           <ShoppingCartDisplayContainer shoppingCartValues = {shoppingCartValues} />
           <CustomerInformationDisplayContainer customerFormValues = {customerFormValues} />
           <Box {...validateOrderAtters.buttonBox} >
+            <Button onClick = {continueShoppingHandler}{...validateOrderAtters.submitButtonProps}>
+              Continue Shopping
+            </Button>
             <Button onClick = {submitOrder} {...validateOrderAtters.submitButtonProps}>
               Submit Order
             </Button>
+            <OrderCompleteDialog
+              closeOrderCompleteDialogHandler = {closeOrderCompleteDialogHandler}
+              orderSubmissionMessage = {orderSubmissionMessage}
+              openDialog = {openDialog}
+            />
           </Box>
         </Box>
       </>
