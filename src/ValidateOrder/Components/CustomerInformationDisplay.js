@@ -2,8 +2,6 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 
-import {Fragment} from 'react'
-
 import customerInformationDisplayAtters from '../Atters/customerInformationDisplayAtters'
 import useEditOrderHook from '../Hooks/EditOrderHook'
 

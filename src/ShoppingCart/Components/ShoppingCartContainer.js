@@ -21,13 +21,3 @@ const ShoppingCartContainer = () => {
 }
 
 export default ShoppingCartContainer
-/*
-{
-  cart && <Box {...shoppingCartContainerAtters.boxProps}>
-    <ShoppingCart cart = {cart} />
-  </Box>
-}
-{
-  !cart && <h1>...Loading</h1>
-}
-*/

@@ -4,8 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 
 import ExpandedNav from './ExpandedNav'
 import CartButton from './CartButton'
+import navLinks from '../common/Constants/navLinks'
 
-const tempNavLinks = ['Mens', 'Womens', 'Sale'];
 
 const NavContainer = () => {
   return(
@@ -13,7 +13,7 @@ const NavContainer = () => {
       <AppBar position="static">
         <Box sx = {{width: '100%', px: 10, border: 1}}>
           <Toolbar >
-            <ExpandedNav navLinks = {tempNavLinks} />
+            <ExpandedNav navLinks = {navLinks} />
             <Box sx = {{width:'100%', height:'100%', display: 'flex', justifyContent: 'flex-end'}}>
               <CartButton />
             </Box>

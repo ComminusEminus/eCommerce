@@ -28,27 +28,3 @@ CustomerInformationForm.prototype = Object.create(FormInstance.prototype)
 CustomerInformationForm.prototype.constructor = CustomerInformationForm;
 
 export default CustomerInformationForm
-
-
-/*
-this.firstname = ''
-this.lastname = ''
-this.streetaddress = ''
-this.aptnumber = ''
-this.city = ''
-this.state = ''
-this.zip = ''
-this.phone = ''
-this.email = ''
-this.cardfirstname = ''
-this.cardlastname = ''
-this.cardaddress = ''
-this.cardaptnumber = ''
-this.cardcity = ''
-this.cardstate = ''
-this.cardzip = ''
-this.cardnumber = ''
-this.cardsecuritycode = ''
-this.cardexp = ''
-
-*/

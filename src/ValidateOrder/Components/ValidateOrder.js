@@ -4,13 +4,19 @@ import validateOrderAtters from '../Atters/validateOrderAtters'
 import useValidateOrderHook from '../Hooks/ValidateOrderHook'
 import OrderCompleteDialog from './OrderCompleteDialog'
 
-import {memo} from 'react'
-
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
 const ValidateOrder = () => {
-  const {submitOrder, customerFormValues, shoppingCartValues, continueShoppingHandler, closeOrderCompleteDialogHandler, orderSubmissionMessage, openDialog} = useValidateOrderHook()
+  const {
+          submitOrder, 
+          customerFormValues,
+          shoppingCartValues,
+          continueShoppingHandler,
+          closeOrderCompleteDialogHandler,
+          orderSubmissionMessage,
+          openDialog
+        } = useValidateOrderHook()
   if( customerFormValues){
     return(
       <>

@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 
 const ShoppingCartModel = ({modelProps}) => {
   const {handleClose, open, cartData} = modelProps
-  console.log(cartData)
+
   return (
     <>
       {

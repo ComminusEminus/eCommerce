@@ -1,4 +1,3 @@
-
 import ShoppingCartItem from '../../ShoppingCart/Components/ShoppingCartItem'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'

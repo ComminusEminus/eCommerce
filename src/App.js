@@ -9,11 +9,3 @@ function App() {
 }
 
 export default App;
-
-
-
-/*
-import RoutePaths from './Routing/container/RoutePaths'
-<RoutePaths />
-
-*/

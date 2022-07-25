@@ -5,10 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-/*
-  Order Complete dialog which will pop up displaying a message of order submitted or error depending on
-  what is returned from db server. 
-*/
+
 const OrderCompleteDialog = ({closeOrderCompleteDialogHandler, orderSubmissionMessage, openDialog}) => {
   return(
     <>

@@ -1,4 +1,4 @@
-import {useContext, useEffect, useMemo, useLayoutEffect} from 'react'
+import {useContext, useLayoutEffect} from 'react'
 
 import CustomerInfoContext from '../Provider/CustomerInfoContext'
 

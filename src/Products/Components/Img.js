@@ -1,7 +1,7 @@
 import useProductImgHook from '../Hooks/ProductImgHook'
 import productImgAtters from '../Atters/productImgAtters'
 import Box from '@mui/material/Box'
-import Zoom from '@mui/material/Zoom';
+
 
 const Img = ({title}) => {
   const {url} = useProductImgHook(title)
