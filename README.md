@@ -14,9 +14,11 @@
 This is a simple e-commerce application. Its creation was motivated to utilize multiple storage technologies for both data and images. I did not apply an authorization/ authentication module into the app as this was not the focus for the project. The design of the project uses Mongo DB for details of each of the products and saving the order data from the user. As each product is rendered a call to the Firebase repository will return a link with the product image where they are hosted.
 
 ## Features
+
 Application features include: browse catalog of products by category; add, remove or edit shopping cart; submitting shopping cart order.
 
-## Images
+## Technologies
+
 * React
 * Material UI
 * Axios
@@ -30,7 +32,7 @@ Application features include: browse catalog of products by category; add, remov
 * Firebase
 * MongoDB Atlas
 
-## Screen Shots
+## Images
 
 ### HomePage
 ![Home Page](./public/images/HomePage.png)
