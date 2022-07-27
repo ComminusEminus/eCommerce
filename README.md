@@ -5,7 +5,7 @@
 - [Introduction](#Introduction)
 - [Features](#Features)
 - [Technologies](#Technologies)
-- [Screen Shots](#Screen Shots)
+- [Screen Shots](#ScreenShots)
 - [Instructions](#Instructions)
 
 
