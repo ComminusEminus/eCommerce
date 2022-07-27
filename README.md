@@ -16,7 +16,7 @@ This is a simple e-commerce application. Its creation was motivated to utilize m
 ## Features
 Application features include: browse catalog of products by category; add, remove or edit shopping cart; submitting shopping cart order.
 
-## Technologies
+## Images
 * React
 * Material UI
 * Axios
