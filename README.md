@@ -5,7 +5,7 @@
 - [Introduction](#Introduction)
 - [Features](#Features)
 - [Technologies](#Technologies)
-- [Screen Shots](#ScreenShots)
+- [Images](#Images)
 - [Instructions](#Instructions)
 
 
@@ -17,18 +17,18 @@ This is a simple e-commerce application. Its creation was motivated to utilize m
 Application features include: browse catalog of products by category; add, remove or edit shopping cart; submitting shopping cart order.
 
 ## Technologies
-React
-Material UI
-Axios
-Firebase Formik
-Yup
-Node.js
-Mongo DB
-Express JS
-CORS
-Mongoose
-Firebase
-MongoDB Atlas
+* React
+* Material UI
+* Axios
+* Firebase Formik
+* Yup
+* Node.js
+* Mongo DB
+* Express JS
+* CORS
+* Mongoose
+* Firebase
+* MongoDB Atlas
 
 ## Screen Shots
 
