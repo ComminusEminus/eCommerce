@@ -1,4 +1,4 @@
 module.exports = {
-  DB: "testDB",
-  PASSWORD: "FB5hAgn9fxKCoSWy"
+  DB: "ADD DB NAME HERE",
+  PASSWORD: "ADD PASSWORD HERE"
 };

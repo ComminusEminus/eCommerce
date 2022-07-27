@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# E Commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+Introduction
+Features
+Technologies
+Screen Shots
+Instructions
 
-## Available Scripts
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+This is a simple e-commerce application. Its creation was motivated to utilize multiple storage technologies for both data and images. I did not apply an authorization/ authentication module into the app as this was not the focus for the project. The design of the project uses Mongo DB for details of each of the products and saving the order data from the user. As each product is rendered a call to the Firebase repository will return a link with the product image where they are hosted.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+Application features include: browse catalog of products by category; add, remove or edit shopping cart; submitting shopping cart order.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##Technologies
+React
+Material UI
+Axios
+Firebase Formik
+Yup
+Node.js
+Mongo DB
+Express JS
+CORS
+Mongoose
+Firebase
+MongoDB Atlas
 
-### `npm test`
+##Screen Shots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### HomePage
+![Home Page](./public/images/HomePage.png)
+### Selected Category Page
+![Select Category Page](./public/images/SelectCategory.png)
+### Order Product
+![Order Product Page](./public/images/OrderProduct.png)
+### Shopping Cart
+![Shopping Cart Page](./public/images/ShoppingCart.png)
 
-### `npm run build`
+##Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Clone the project into local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install (package name)
 
-### `npm run eject`
+Install Create React App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm install -g create-react-app
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Next you will need to set up a Mongo DB Atlas account. Don’t worry there is a free tier.
+Here is a link to get started
+[MongoDB Instructions](https://www.mongodb.com/atlas)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Next you will need to set up a Firebase cloud storage account
+Here is a link to the google docs to get started
+[Firebase Setup](https://firebase.google.com/docs/firestore/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Once your Cloud Storage account is set up you will need to add 6 t-shirt images. I will allow you to find those on google yourself. Follow Firebase instructions on adding images. The fetch module for Firebase is set to locate images in Firebase by file name and uses the products “product name” so make sure that they match. You can find the product names of each product in backend > productData.js. You can modify the product list if you want to auto create more or less products. Once you Firebase account is properly set up go to src>Fetch>Firebase config. Add the account information in the file as requested.
 
-## Learn More
+Now that you have your mongoDB account set up follow the instructions from atlas to add get your db name and password. Once you have both password and db name go to backend>config>db.config.js and replace the db name and password.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Now that all your hosting needs are connected open two tabs in your terminal. Move into the root of the backend folder in the first tab and laugh using node index.js in terminal. Make sure that backend is launched on port 8087
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In the second tab move to the root or ecommence folder and launch using npm start. Ensure app is launched on port 3000.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If everything has been configured correctly you should be able to navigate the application with ease.  
